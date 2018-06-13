@@ -8,31 +8,46 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  monsterName = 'superman';
-  monsterPower: 0;
+  monsterName: 'superman';
+  monsterPower: number;
 
-  monsters: any[] = [{
+  hero: any = {
+
+    name: '',
+    power: null
+
+
+  };
+
+
+
+
+  monsters: any[] = [
+    {
       monsterName: 'superman',
-      monserPower: null,
+      monsterPower: Math.floor(Math.random() * 100)
      },
-     { monsterName: 'super',
-      montserPower:  null,
+     { monsterName: 'supermonster',
+      monsterPower:  Math.floor(Math.random() * 100)
      }
     ];
 
     monsterSelected;
+
     ngOnInit() {
       this.pickMonster();
     }
 
     pickMonster() {
       const index = Math.floor(Math.random() * this.monsters.length);
-      this.monsterSelected = this.monsterPower;
+      this.monsterSelected = this.monsters[index];
     }
 generatePower() {
   this.monsterSelected.monsterPower = Math.floor(Math.random() * 101);
-  console.log(this.monsterSelected.monsterPower);
+  // console.log(this.monsterSelected.monsterPower);
 }
+heroPower() {
+  this.hero.power = Math.floor(Math.random() * 100);
 
-
+}
 }
